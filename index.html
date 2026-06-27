@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="KRK Degree College — APSCHE affiliated college offering BSc, BZC, BA & BCom programmes in Andhra Pradesh."/>
+  <title>KRK Degree College | Home</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* Page-specific extras */
+    .nav-apply-btn { display: inline-flex; align-items: center; gap: 8px; }
+    .testi-track { display: flex; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ PRELOADER ══════════════════════════════ -->
+<div id="preloader">
+  <div class="pre-emblem">KRK</div>
+  <div class="pre-bar"><div class="pre-fill"></div></div>
+  <p class="pre-text">Loading Excellence…</p>
+</div>
+
+<!-- ═══════════════════════════ CURSOR ═════════════════════════════════ -->
+<div class="cur-dot"></div>
+<div class="cur-ring"></div>
+
+<!-- ═══════════════════════════ NAVBAR ═════════════════════════════════ -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="KRK Degree College Home">
+      <div class="nav-logo-badge">KRK</div>
+      <div>
+        <div class="nav-logo-name">KRK Degree College</div>
+        <div class="nav-logo-sub">APSCHE Affiliated</div>
+      </div>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="departments.html">Departments</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right" style="display:flex;align-items:center;gap:12px;">
+      <a href="admissions.html" class="btn btn-gold nav-apply-btn" style="padding:10px 26px;font-size:.88rem;">
+        <i class="fas fa-graduation-cap"></i> Apply Now
+      </a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile overlay -->
+<div class="mobile-nav">
+  <a href="index.html"><i class="fas fa-home" style="margin-right:10px"></i>Home</a>
+  <a href="about.html"><i class="fas fa-university" style="margin-right:10px"></i>About</a>
+  <a href="departments.html"><i class="fas fa-books" style="margin-right:10px"></i>Departments</a>
+  <a href="admissions.html"><i class="fas fa-file-alt" style="margin-right:10px"></i>Admissions</a>
+  <a href="contact.html"><i class="fas fa-envelope" style="margin-right:10px"></i>Contact</a>
+  <a href="admissions.html" class="btn btn-gold" style="margin-top:12px;">Apply Now</a>
+</div>
+
+<!-- ═══════════════════════════ HERO ════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="particles-canvas"></canvas>
+  <div class="orb hero-orb-1"></div>
+  <div class="orb hero-orb-2"></div>
+
+  <div class="hero-wrap">
+    <!-- Left -->
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="blink"></span>
+        APSCHE Affiliated · Est. 1995
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-typewriter-row" style="color:var(--w60);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:400;font-family:var(--font-b);margin-bottom:4px;">Welcome to</span>
+        <span style="display:block;" class="grad-text">KRK Degree</span>
+        <span style="display:block;">College</span>
+        <span class="hero-typewriter-row" style="font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--gold);font-family:var(--font-b);font-weight:600;margin-top:8px;">
+          <span id="tw"></span>
+        </span>
+      </h1>
+
+      <p class="hero-sub">
+        Empowering students with quality education under the guidance of APSCHE,
+        Andhra Pradesh. A hub of academic excellence, values, and lifelong learning
+        across Science, Life Sciences, Arts &amp; Commerce.
+      </p>
+
+      <div class="hero-actions">
+        <a href="departments.html" class="btn btn-gold">
+          <i class="fas fa-compass"></i> Explore Courses
+        </a>
+        <a href="about.html" class="btn btn-outline">
+          <i class="fas fa-play-circle"></i> Learn More
+        </a>
+      </div>
+
+      <div class="hero-mini-stats">
+        <div>
+          <div class="hm-num" data-count="28" data-suffix="+">28+</div>
+          <div class="hm-lbl">Years of Excellence</div>
+        </div>
+        <div>
+          <div class="hm-num" data-count="2500" data-suffix="+">2500+</div>
+          <div class="hm-lbl">Students Enrolled</div>
+        </div>
+        <div>
+          <div class="hm-num" data-count="60" data-suffix="+">60+</div>
+          <div class="hm-lbl">Faculty Members</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right card -->
+    <div class="hero-right" style="position:relative;">
+      <div class="hero-card">
+        <div class="emblem">KRK</div>
+        <div class="hero-card-name">KRK Degree College</div>
+        <div class="hero-card-tag">Affiliated to APSCHE · AP, India</div>
+        <div class="hero-features">
+          <div class="hf-item">
+            <div class="hf-icon">🔬</div>
+            <span>BSc — Computers &amp; Mathematics</span>
+          </div>
+          <div class="hf-item">
+            <div class="hf-icon">🌿</div>
+            <span>BZC — Zoology &amp; Botany</span>
+          </div>
+          <div class="hf-item">
+            <div class="hf-icon">💼</div>
+            <span>BA &amp; BCom — with Computers</span>
+          </div>
+          <div class="hf-item">
+            <div class="hf-icon">🏆</div>
+            <span>Government Accredited Institution</span>
+          </div>
+        </div>
+      </div>
+      <!-- Floating dept badges -->
+      <div class="float-badge fb-1"><i class="fas fa-laptop-code" style="margin-right:6px"></i>BSc Computers</div>
+      <div class="float-badge fb-2"><i class="fas fa-leaf" style="margin-right:6px"></i>BZC Sciences</div>
+      <div class="float-badge fb-3"><i class="fas fa-chart-line" style="margin-right:6px"></i>BCom</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="mouse"><div class="wheel"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ TICKER ══════════════════════════════════ -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-label"><i class="fas fa-bell" style="margin-right:6px"></i>Latest</span>
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span>Admissions Open for 2025–26 Academic Year — Apply Now!</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Annual Day Celebrations — 15th August 2025</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Inter-Collegiate Science Exhibition — Register Before 30th July</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>New Computer Lab Inaugurated with 60 Systems</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>100% Pass Rate Achieved in Previous Year Board Examinations</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Sports Day Results — KRK Students Win 12 Gold Medals</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ ABOUT ═══════════════════════════════════ -->
+<section class="about-sec section reveal">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-visual reveal-l">
+        <div class="about-img-box">
+          <div class="about-art">
+            <div class="college-icon-art">🏛️</div>
+            <span class="about-art-caption">KRK Degree College Campus</span>
+          </div>
+        </div>
+        <div class="exp-badge">
+          <div class="exp-num" data-count="28" data-suffix="+">28+</div>
+          <div class="exp-lbl">Years of<br>Excellence</div>
+        </div>
+      </div>
+
+      <div class="about-content reveal-r">
+        <span class="section-label">About Our College</span>
+        <h2 class="section-title">A Legacy of <span class="grad-text">Academic Excellence</span></h2>
+        <div class="gold-line"></div>
+        <p class="section-desc">
+          KRK Degree College has been a beacon of quality higher education in Andhra Pradesh
+          since 1995. Affiliated with APSCHE, we offer CBCS-based undergraduate programmes
+          that blend traditional values with modern academic rigour.
+        </p>
+
+        <div class="about-points">
+          <div class="abt-pt">
+            <div class="abt-pt-icon">🎓</div>
+            <div>
+              <div class="abt-pt-title">APSCHE Affiliated</div>
+              <div class="abt-pt-desc">Recognised by the Andhra Pradesh State Council of Higher Education, ensuring curriculum quality and academic standards.</div>
+            </div>
+          </div>
+          <div class="abt-pt">
+            <div class="abt-pt-icon">🔬</div>
+            <div>
+              <div class="abt-pt-title">State-of-the-Art Laboratories</div>
+              <div class="abt-pt-desc">Well-equipped Science, Computer, Botany &amp; Zoology labs enabling hands-on learning experiences.</div>
+            </div>
+          </div>
+          <div class="abt-pt">
+            <div class="abt-pt-icon">🏆</div>
+            <div>
+              <div class="abt-pt-title">Outstanding Results</div>
+              <div class="abt-pt-desc">Consistently achieving near 100% pass rates in APSCHE examinations with multiple rank holders.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:36px;">
+          <a href="about.html" class="btn btn-gold">
+            <i class="fas fa-arrow-right"></i> Discover More
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ STATS ═══════════════════════════════════ -->
+<section class="stats-sec">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-emoji">🏛️</span>
+        <div class="stat-num" data-count="28" data-suffix="+">0+</div>
+        <div class="stat-lbl">Years of Excellence</div>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-emoji">👩‍🎓</span>
+        <div class="stat-num" data-count="2500" data-suffix="+">0+</div>
+        <div class="stat-lbl">Students Enrolled</div>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-emoji">👨‍🏫</span>
+        <div class="stat-num" data-count="60" data-suffix="+">0+</div>
+        <div class="stat-lbl">Expert Faculty</div>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-emoji">📈</span>
+        <div class="stat-num" data-count="98" data-suffix="%">0%</div>
+        <div class="stat-lbl">Pass Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ DEPARTMENTS ═════════════════════════════ -->
+<section class="dept-sec section">
+  <div class="container">
+    <div class="dept-head">
+      <span class="section-label">Our Programmes</span>
+      <h2 class="section-title">Explore Our <span class="grad-text">Departments</span></h2>
+      <div class="gold-line"></div>
+      <p class="section-desc" style="margin:0 auto;text-align:center;">
+        Three specialised departments offering APSCHE-approved CBCS undergraduate degrees
+        designed to equip students for the modern world.
+      </p>
+    </div>
+
+    <div class="dept-grid stagger">
+
+      <!-- BSc -->
+      <div class="dept-card">
+        <div class="dept-visual dept-v1">
+          <div class="dept-bg-circle"></div>
+          <div class="dept-icon">🔬</div>
+        </div>
+        <div class="dept-body">
+          <div class="dept-tag">B.Sc Programme</div>
+          <h3 class="dept-title">Science — Computers &amp; Mathematics</h3>
+          <p class="dept-desc">Bridging classical mathematics with modern computing, our BSc programme builds analytical thinkers and technology innovators.</p>
+          <div class="dept-subjects">
+            <span class="subj-chip">Computer Science</span>
+            <span class="subj-chip">Mathematics</span>
+            <span class="subj-chip">Programming</span>
+            <span class="subj-chip">Statistics</span>
+          </div>
+          <a href="departments.html#bsc" class="dept-link">
+            Explore Programme <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- BZC -->
+      <div class="dept-card">
+        <div class="dept-visual dept-v2">
+          <div class="dept-bg-circle"></div>
+          <div class="dept-icon">🌿</div>
+        </div>
+        <div class="dept-body">
+          <div class="dept-tag">B.Sc Life Sciences</div>
+          <h3 class="dept-title">BZC — Botany, Zoology &amp; Chemistry</h3>
+          <p class="dept-desc">A comprehensive life sciences programme exploring the living world — from cellular biology to ecological systems and beyond.</p>
+          <div class="dept-subjects">
+            <span class="subj-chip">Zoology</span>
+            <span class="subj-chip">Botany</span>
+            <span class="subj-chip">Chemistry</span>
+            <span class="subj-chip">Ecology</span>
+          </div>
+          <a href="departments.html#bzc" class="dept-link">
+            Explore Programme <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- BA / BCom -->
+      <div class="dept-card">
+        <div class="dept-visual dept-v3">
+          <div class="dept-bg-circle"></div>
+          <div class="dept-icon">📊</div>
+        </div>
+        <div class="dept-body">
+          <div class="dept-tag">B.A &amp; B.Com</div>
+          <h3 class="dept-title">Arts &amp; Commerce with Computers</h3>
+          <p class="dept-desc">Combining humanities and business acumen with computer applications, preparing graduates for diverse career paths in today's economy.</p>
+          <div class="dept-subjects">
+            <span class="subj-chip">Commerce</span>
+            <span class="subj-chip">Accounting</span>
+            <span class="subj-chip">Computer Apps</span>
+            <span class="subj-chip">Economics</span>
+          </div>
+          <a href="departments.html#bcom" class="dept-link">
+            Explore Programme <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ WHY KRK ═════════════════════════════════ -->
+<section class="why-sec section">
+  <div class="container">
+    <div class="why-head">
+      <span class="section-label">Why Choose Us</span>
+      <h2 class="section-title">The <span class="grad-text">KRK Advantage</span></h2>
+      <div class="gold-line" style="margin:16px auto 0;"></div>
+    </div>
+    <div class="why-grid stagger">
+      <div class="why-card reveal">
+        <div class="why-icon">🎓</div>
+        <h3 class="why-card-title">Expert Faculty</h3>
+        <p class="why-card-desc">60+ highly qualified, experienced educators passionate about student success and mentorship.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🔬</div>
+        <h3 class="why-card-title">Modern Labs</h3>
+        <p class="why-card-desc">State-of-the-art computer, chemistry, botany and zoology laboratories with latest equipment.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">📚</div>
+        <h3 class="why-card-title">Rich Library</h3>
+        <p class="why-card-desc">10,000+ volumes, digital resources, journals and e-learning access for comprehensive study.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🏆</div>
+        <h3 class="why-card-title">Consistent Results</h3>
+        <p class="why-card-desc">Outstanding track record with 98%+ pass rates and multiple university rank holders every year.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">⚽</div>
+        <h3 class="why-card-title">Sports &amp; Culture</h3>
+        <p class="why-card-desc">Vibrant extracurricular life — sports, NCC, NSS, cultural events and inter-college competitions.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🌐</div>
+        <h3 class="why-card-title">Career Guidance</h3>
+        <p class="why-card-desc">Dedicated placement cell, career counselling and alumni network to open doors beyond campus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ EVENTS ══════════════════════════════════ -->
+<section class="events-sec section" style="background:linear-gradient(180deg,var(--navy-mid),var(--navy));">
+  <div class="container">
+    <div class="events-head">
+      <span class="section-label">Campus Life</span>
+      <h2 class="section-title">Upcoming <span class="grad-text">Events &amp; News</span></h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">Stay connected with the vibrant happenings at KRK Degree College.</p>
+    </div>
+
+    <div class="events-grid stagger">
+      <div class="ev-card reveal">
+        <div class="ev-date"><div class="ev-day">15</div><div class="ev-month">Aug</div></div>
+        <div>
+          <div class="ev-type">National Event</div>
+          <div class="ev-title">Independence Day Celebrations &amp; Cultural Programme</div>
+          <div class="ev-meta"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:5px"></i>College Auditorium, 9:00 AM</div>
+        </div>
+      </div>
+      <div class="ev-card reveal">
+        <div class="ev-date"><div class="ev-day">22</div><div class="ev-month">Aug</div></div>
+        <div>
+          <div class="ev-type">Academic</div>
+          <div class="ev-title">Inter-College Science Exhibition 2025</div>
+          <div class="ev-meta"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:5px"></i>Science Block, 10:00 AM</div>
+        </div>
+      </div>
+      <div class="ev-card reveal">
+        <div class="ev-date"><div class="ev-day">05</div><div class="ev-month">Sep</div></div>
+        <div>
+          <div class="ev-type">Celebration</div>
+          <div class="ev-title">Teacher's Day — Honouring Our Educators</div>
+          <div class="ev-meta"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:5px"></i>Main Hall, 11:00 AM</div>
+        </div>
+      </div>
+      <div class="ev-card reveal">
+        <div class="ev-date"><div class="ev-day">18</div><div class="ev-month">Sep</div></div>
+        <div>
+          <div class="ev-type">Sports</div>
+          <div class="ev-title">Annual Sports Meet &amp; Athletic Championship</div>
+          <div class="ev-meta"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:5px"></i>College Grounds, 8:00 AM</div>
+        </div>
+      </div>
+      <div class="ev-card reveal">
+        <div class="ev-date"><div class="ev-day">10</div><div class="ev-month">Oct</div></div>
+        <div>
+          <div class="ev-type">Workshop</div>
+          <div class="ev-title">Digital Skills Workshop — MS Office &amp; Internet Basics</div>
+          <div class="ev-meta"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:5px"></i>Computer Lab, 9:30 AM</div>
+        </div>
+      </div>
+      <div class="ev-card reveal">
+        <div class="ev-date"><div class="ev-day">25</div><div class="ev-month">Oct</div></div>
+        <div>
+          <div class="ev-type">Cultural</div>
+          <div class="ev-title">Annual Day &amp; Prize Distribution Ceremony</div>
+          <div class="ev-meta"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:5px"></i>College Auditorium, 5:00 PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="contact.html" class="btn btn-outline"><i class="fas fa-calendar-alt"></i> View All Events</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ GALLERY ═════════════════════════════════ -->
+<section class="gallery-sec section">
+  <div class="container">
+    <div class="gallery-head">
+      <span class="section-label">Campus Gallery</span>
+      <h2 class="section-title">Life at <span class="grad-text">KRK College</span></h2>
+      <div class="gold-line" style="margin:16px auto 0;"></div>
+    </div>
+
+    <div class="gal-grid">
+      <div class="gal-item gal-span2">
+        <div class="gal-art ga1">🏛️</div>
+        <div class="gal-over">
+          <div class="gal-over-txt">College Campus</div>
+          <div class="gal-over-sub">Main Building</div>
+        </div>
+      </div>
+      <div class="gal-item">
+        <div class="gal-art ga2">🔬</div>
+        <div class="gal-over">
+          <div class="gal-over-txt">Science Lab</div>
+          <div class="gal-over-sub">Chemistry &amp; Biology</div>
+        </div>
+      </div>
+      <div class="gal-item gal-row2">
+        <div class="gal-art ga3" style="height:100%;">🖥️</div>
+        <div class="gal-over">
+          <div class="gal-over-txt">Computer Lab</div>
+          <div class="gal-over-sub">60 Systems, Wi-Fi</div>
+        </div>
+      </div>
+      <div class="gal-item">
+        <div class="gal-art ga4">📚</div>
+        <div class="gal-over">
+          <div class="gal-over-txt">Library</div>
+          <div class="gal-over-sub">10,000+ Books</div>
+        </div>
+      </div>
+      <div class="gal-item">
+        <div class="gal-art ga5">⚽</div>
+        <div class="gal-over">
+          <div class="gal-over-txt">Sports Ground</div>
+          <div class="gal-over-sub">Multi-sport Facility</div>
+        </div>
+      </div>
+      <div class="gal-item">
+        <div class="gal-art ga6">🌿</div>
+        <div class="gal-over">
+          <div class="gal-over-txt">Botanical Garden</div>
+          <div class="gal-over-sub">200+ Plant Species</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ TESTIMONIALS ════════════════════════════ -->
+<section class="testi-sec section" style="background:radial-gradient(ellipse at 50% 50%,var(--navy-mid),var(--navy) 70%);">
+  <div class="container">
+    <div class="testi-head">
+      <span class="section-label">Student Stories</span>
+      <h2 class="section-title">What Our <span class="grad-text">Alumni Say</span></h2>
+      <div class="gold-line" style="margin:16px auto 0;"></div>
+    </div>
+
+    <div class="testi-wrapper">
+      <div class="testi-track">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">KRK College gave me the strong foundation in Mathematics and Computer Science that launched my career in software engineering. The faculty here are truly dedicated and always go beyond the curriculum.</p>
+          <div class="testi-author">
+            <div class="testi-ava">SR</div>
+            <div>
+              <div class="testi-name">Sai Reddy</div>
+              <div class="testi-batch">BSc (MPC) · Batch of 2022 · Software Engineer, Hyderabad</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">The BZC programme at KRK opened my eyes to the wonders of the natural world. Today I'm pursuing my MSc in Botany. The botanical garden and labs were instrumental in my learning.</p>
+          <div class="testi-author">
+            <div class="testi-ava">PL</div>
+            <div>
+              <div class="testi-name">Priya Lakshmi</div>
+              <div class="testi-batch">BZC · Batch of 2021 · MSc Student, Andhra University</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">BCom with Computers at KRK College was the perfect choice. The practical computer training alongside commerce subjects made me job-ready from day one. Secured a position at an MNC right after graduation.</p>
+          <div class="testi-author">
+            <div class="testi-ava">AK</div>
+            <div>
+              <div class="testi-name">Arjun Kumar</div>
+              <div class="testi-batch">BCom (Computers) · Batch of 2023 · Accountant, Vijayawada</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">The college management, the Principal's guidance, and the supportive atmosphere at KRK made my three years here truly memorable. NCC, cultural events, sports — I grew as a complete individual.</p>
+          <div class="testi-author">
+            <div class="testi-ava">DM</div>
+            <div>
+              <div class="testi-name">Divya Mounika</div>
+              <div class="testi-batch">BA (Computers) · Batch of 2022 · Government Employee</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">I secured university first rank in my BSc examinations, something I owe entirely to my professors at KRK. Their personalised attention and rigorous preparation made all the difference.</p>
+          <div class="testi-author">
+            <div class="testi-ava">VN</div>
+            <div>
+              <div class="testi-name">Venkat Naidu</div>
+              <div class="testi-batch">BSc (MPC) · University First Rank · Batch of 2023</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-nav">
+      <button class="testi-btn testi-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+      <div class="testi-dots">
+        <span class="tdot active"></span>
+        <span class="tdot"></span>
+        <span class="tdot"></span>
+      </div>
+      <button class="testi-btn testi-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ AFFILIATIONS ════════════════════════════ -->
+<section class="affil-sec section">
+  <div class="container">
+    <p class="affil-label">Recognised &amp; Affiliated By</p>
+    <div class="affil-row">
+      <div class="affil-chip">
+        <div class="affil-ic">🏛️</div>
+        <div>
+          <div class="affil-chip-name">APSCHE</div>
+          <div class="affil-chip-sub">AP State Council of Higher Education</div>
+        </div>
+      </div>
+      <div class="affil-chip">
+        <div class="affil-ic">🎓</div>
+        <div>
+          <div class="affil-chip-name">UGC</div>
+          <div class="affil-chip-sub">University Grants Commission</div>
+        </div>
+      </div>
+      <div class="affil-chip">
+        <div class="affil-ic">🏆</div>
+        <div>
+          <div class="affil-chip-name">NAAC</div>
+          <div class="affil-chip-sub">Accredited Institution</div>
+        </div>
+      </div>
+      <div class="affil-chip">
+        <div class="affil-ic">📋</div>
+        <div>
+          <div class="affil-chip-name">Govt. of AP</div>
+          <div class="affil-chip-sub">Department of Higher Education</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CTA BANNER ══════════════════════════════ -->
+<section style="padding:80px 0;background:var(--grad-blue);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");"></div>
+  <div class="container" style="text-align:center;position:relative;z-index:1;">
+    <h2 style="font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;margin-bottom:16px;">
+      Begin Your Journey at <span class="grad-text">KRK Degree College</span>
+    </h2>
+    <p style="color:var(--w60);font-size:1.05rem;max-width:520px;margin:0 auto 36px;line-height:1.8;">
+      Admissions are now open for the 2025–26 academic year. Take the first step towards a bright future.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="admissions.html" class="btn btn-gold"><i class="fas fa-file-alt"></i> Apply Now</a>
+      <a href="contact.html" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo-row">
+          <div class="foot-logo-badge">KRK</div>
+          <div>
+            <div class="foot-logo-name">KRK Degree College</div>
+            <div class="foot-logo-sub">APSCHE Affiliated</div>
+          </div>
+        </div>
+        <p class="foot-desc">
+          A premier institution of higher education in Andhra Pradesh, committed to academic excellence,
+          holistic development, and preparing students for a rapidly evolving world since 1995.
+        </p>
+        <div class="socials">
+          <a href="#" class="soc-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="soc-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About College</a></li>
+          <li><a href="departments.html">Departments</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Programmes</h4>
+        <ul class="foot-links">
+          <li><a href="departments.html#bsc">BSc — Computers &amp; Maths</a></li>
+          <li><a href="departments.html#bzc">BZC — Botany &amp; Zoology</a></li>
+          <li><a href="departments.html#ba">BA with Computers</a></li>
+          <li><a href="departments.html#bcom">BCom with Computers</a></li>
+          <li><a href="admissions.html">Fee Structure</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Contact Info</h4>
+        <div class="foot-contact-item">
+          <span class="fci-icon"><i class="fas fa-map-marker-alt"></i></span>
+          <span>KRK Degree College, Andhra Pradesh — 500 0XX, India</span>
+        </div>
+        <div class="foot-contact-item">
+          <span class="fci-icon"><i class="fas fa-phone-alt"></i></span>
+          <span>+91 XXXXX XXXXX</span>
+        </div>
+        <div class="foot-contact-item">
+          <span class="fci-icon"><i class="fas fa-envelope"></i></span>
+          <span>info@krkdegreecollege.ac.in</span>
+        </div>
+        <div class="foot-contact-item">
+          <span class="fci-icon"><i class="fas fa-clock"></i></span>
+          <span>Mon–Sat: 9:00 AM – 4:00 PM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div class="foot-copy">
+        &copy; 2025 <span>KRK Degree College</span>. All rights reserved. Affiliated to <span>APSCHE</span>.
+      </div>
+      <div class="foot-bl">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="admissions.html">Admissions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

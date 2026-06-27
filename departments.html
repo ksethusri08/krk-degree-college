@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Departments — KRK Degree College</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ─── dept-page extras ─── */
+    .dept-detail { padding: 100px 0; }
+    .dept-detail:nth-child(even) { background: linear-gradient(180deg,var(--navy-mid),var(--navy)); }
+
+    .dept-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+    .dept-detail-grid.rev { }
+
+    .dept-detail-visual {
+      border-radius: var(--rad-xl); overflow:hidden;
+      aspect-ratio:4/3; position:relative;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .dv-bg1 { background:linear-gradient(135deg,#0a1a4a,#1565c0,#42a5f5); }
+    .dv-bg2 { background:linear-gradient(135deg,#0f2a11,#2e7d32,#66bb6a); }
+    .dv-bg3 { background:linear-gradient(135deg,#1e0a3a,#6a1b9a,#ce93d8); }
+
+    .dv-main-icon { font-size:7rem; animation:float 5s ease-in-out infinite; position:relative;z-index:1; }
+    .dv-circles {
+      position:absolute;inset:0;
+      background: radial-gradient(circle at 30% 40%,rgba(255,255,255,.06) 0%,transparent 50%),
+                  radial-gradient(circle at 70% 70%,rgba(255,255,255,.04) 0%,transparent 40%);
+    }
+
+    .dept-num { font-family:var(--font-d);font-size:4rem;font-weight:800;opacity:.06;line-height:1;margin-bottom:-20px; }
+
+    .feat-list { display:flex;flex-direction:column;gap:14px;margin:24px 0 32px; }
+    .feat-item {
+      display:flex;gap:14px;align-items:flex-start;padding:16px 18px;
+      border-radius:var(--rad-sm);background:var(--glass);border:1px solid var(--glass-b);
+      transition:var(--tr);
+    }
+    .feat-item:hover { border-color:rgba(255,215,0,.25);transform:translateX(5px); }
+    .feat-dot { width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:6px;flex-shrink:0; }
+    .feat-text { color:var(--w60);font-size:.9rem;line-height:1.65; }
+    .feat-strong { color:var(--white);font-weight:600; }
+
+    .subject-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0; }
+    .subj-card {
+      padding:18px 16px;border-radius:var(--rad-md);text-align:center;
+      background:var(--glass);border:1px solid var(--glass-b);transition:var(--tr);
+    }
+    .subj-card:hover { border-color:rgba(255,215,0,.3);transform:scale(1.04); }
+    .subj-icon { font-size:1.6rem;margin-bottom:8px;display:block; }
+    .subj-name { font-size:.85rem;font-weight:700;color:var(--white);line-height:1.3; }
+    .subj-sem  { font-size:.72rem;color:var(--gold);margin-top:3px; }
+
+    .careers-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px; }
+    .career-chip {
+      display:flex;align-items:center;gap:10px;padding:14px 18px;
+      border-radius:var(--rad-sm);background:var(--glass);border:1px solid var(--glass-b);
+      font-size:.85rem;color:var(--w60);transition:var(--tr);
+    }
+    .career-chip:hover { border-color:rgba(255,215,0,.25);color:var(--white); }
+    .career-chip i { color:var(--gold); }
+
+    .dept-tabs { display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap; }
+    .dtab {
+      padding:10px 22px;border-radius:var(--rad-pill);font-size:.85rem;font-weight:600;
+      background:var(--glass);border:1px solid var(--glass-b);cursor:pointer;transition:var(--tr);
+    }
+    .dtab.active,.dtab:hover { background:var(--grad-gold);color:var(--navy);border-color:transparent; }
+
+    @media(max-width:900px){
+      .dept-detail-grid { grid-template-columns:1fr; gap:40px; }
+      .dept-detail-visual { max-width:420px; }
+      .subject-grid { grid-template-columns:repeat(2,1fr); }
+      .careers-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:540px){ .subject-grid { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="cur-dot"></div>
+<div class="cur-ring"></div>
+
+<!-- ── Navbar ── -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-badge">KRK</div>
+      <div>
+        <div class="nav-logo-name">KRK Degree College</div>
+        <div class="nav-logo-sub">APSCHE Affiliated</div>
+      </div>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="departments.html" class="active">Departments</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="admissions.html" class="btn btn-gold" style="padding:10px 26px;font-size:.88rem;display:inline-flex;align-items:center;gap:8px;">
+        <i class="fas fa-graduation-cap"></i> Apply Now
+      </a>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="departments.html">Departments</a>
+  <a href="admissions.html">Admissions</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ── Inner Hero ── -->
+<section class="inner-hero">
+  <div class="orb" style="width:500px;height:500px;background:var(--blue);top:-100px;right:-100px;opacity:.12;filter:blur(80px);"></div>
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Departments</span></div>
+    <h1 class="inner-title">Our <span class="grad-text">Departments</span></h1>
+    <p class="inner-desc">Three specialised undergraduate programmes under APSCHE's CBCS framework — designed for the scholars of tomorrow.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
+      <a href="#bsc" class="btn btn-gold" style="padding:10px 24px;font-size:.85rem;"><i class="fas fa-flask"></i> BSc</a>
+      <a href="#bzc" class="btn btn-outline" style="padding:10px 24px;font-size:.85rem;"><i class="fas fa-leaf"></i> BZC</a>
+      <a href="#bcom" class="btn btn-outline" style="padding:10px 24px;font-size:.85rem;"><i class="fas fa-chart-bar"></i> BA &amp; BCom</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ DEPARTMENT 1: BSc ════════════════════ -->
+<section class="dept-detail" id="bsc">
+  <div class="container">
+    <div class="dept-detail-grid">
+
+      <div class="reveal-l">
+        <div class="dept-num">01</div>
+        <span class="section-label" style="color:#42a5f5;">Science Department</span>
+        <h2 class="section-title">BSc — Computers &amp; <span style="color:#42a5f5;">Mathematics</span></h2>
+        <div class="gold-line"></div>
+        <p class="section-desc">
+          An intellectually stimulating programme that blends the power of Mathematics with
+          the versatility of Computer Science, preparing students for careers in IT, data
+          analytics, software development, academia, and government services.
+        </p>
+
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Duration:</span> 3 Years (6 Semesters) · CBCS Framework</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Intake:</span> 60 Seats per Academic Year</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Eligibility:</span> 10+2 / Intermediate with Mathematics as a subject</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Lab Facility:</span> Dedicated Computer Lab with 60 systems, C, Java, Python programming environments</div>
+          </div>
+        </div>
+
+        <a href="admissions.html" class="btn btn-gold"><i class="fas fa-arrow-right"></i> Apply for BSc</a>
+      </div>
+
+      <div class="reveal-r">
+        <div class="dept-detail-visual dv-bg1">
+          <div class="dv-circles"></div>
+          <div class="dv-main-icon">🔬</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subjects -->
+    <div style="margin-top:72px;" class="reveal">
+      <h3 style="font-family:var(--font-d);font-size:1.5rem;margin-bottom:8px;">Core Subjects &amp; Papers</h3>
+      <div class="gold-line"></div>
+      <div class="subject-grid">
+        <div class="subj-card">
+          <span class="subj-icon">📐</span>
+          <div class="subj-name">Differential Calculus &amp; Algebra</div>
+          <div class="subj-sem">Semester 1 &amp; 2</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">💻</span>
+          <div class="subj-name">C Programming &amp; Problem Solving</div>
+          <div class="subj-sem">Semester 1</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🔢</span>
+          <div class="subj-name">Linear Algebra &amp; Discrete Mathematics</div>
+          <div class="subj-sem">Semester 2 &amp; 3</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🕸️</span>
+          <div class="subj-name">Data Structures &amp; Algorithms</div>
+          <div class="subj-sem">Semester 3</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🗄️</span>
+          <div class="subj-name">Database Management Systems</div>
+          <div class="subj-sem">Semester 4</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🐍</span>
+          <div class="subj-name">Python &amp; Web Technologies</div>
+          <div class="subj-sem">Semester 4 &amp; 5</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">📊</span>
+          <div class="subj-name">Statistics &amp; Numerical Methods</div>
+          <div class="subj-sem">Semester 5</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🤖</span>
+          <div class="subj-name">Artificial Intelligence Basics</div>
+          <div class="subj-sem">Semester 6 (Elective)</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🛡️</span>
+          <div class="subj-name">Cyber Security Fundamentals</div>
+          <div class="subj-sem">Semester 6 (Elective)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Careers -->
+    <div style="margin-top:60px;" class="reveal">
+      <h3 style="font-family:var(--font-d);font-size:1.5rem;margin-bottom:8px;">Career Opportunities</h3>
+      <div class="gold-line"></div>
+      <div class="careers-grid">
+        <div class="career-chip"><i class="fas fa-code"></i> Software Developer / Programmer</div>
+        <div class="career-chip"><i class="fas fa-chart-bar"></i> Data Analyst / Business Analyst</div>
+        <div class="career-chip"><i class="fas fa-user-graduate"></i> MCA / MSc Computer Science</div>
+        <div class="career-chip"><i class="fas fa-landmark"></i> Government &amp; Bank Exams (UPSC, APPSC)</div>
+        <div class="career-chip"><i class="fas fa-chalkboard-teacher"></i> Teacher / Lecturer (after PG + B.Ed)</div>
+        <div class="career-chip"><i class="fas fa-robot"></i> AI/ML Engineer (after specialisation)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ DEPARTMENT 2: BZC ════════════════════ -->
+<section class="dept-detail" id="bzc" style="background:linear-gradient(180deg,var(--navy-mid),var(--navy));">
+  <div class="container">
+    <div class="dept-detail-grid">
+
+      <div class="reveal-l" style="order:2;">
+        <div class="dept-detail-visual dv-bg2">
+          <div class="dv-circles"></div>
+          <div class="dv-main-icon">🌿</div>
+        </div>
+      </div>
+
+      <div class="reveal-r" style="order:1;">
+        <div class="dept-num">02</div>
+        <span class="section-label" style="color:#66bb6a;">Life Sciences Department</span>
+        <h2 class="section-title">BZC — Botany, Zoology &amp; <span style="color:#66bb6a;">Chemistry</span></h2>
+        <div class="gold-line"></div>
+        <p class="section-desc">
+          A comprehensive life sciences programme exploring biodiversity, molecular biology,
+          ecology, and chemistry. Our students go on to careers in medicine, research,
+          environmental science, agriculture, and public health.
+        </p>
+
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Duration:</span> 3 Years (6 Semesters) · CBCS Framework</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Intake:</span> 60 Seats per Academic Year</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Eligibility:</span> 10+2 / Intermediate with Biology / Botany / Zoology</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Lab Facility:</span> Dedicated Botany, Zoology &amp; Chemistry labs; Botanical Garden with 200+ species</div>
+          </div>
+        </div>
+
+        <a href="admissions.html" class="btn btn-gold"><i class="fas fa-arrow-right"></i> Apply for BZC</a>
+      </div>
+
+    </div>
+
+    <!-- Subjects -->
+    <div style="margin-top:72px;" class="reveal">
+      <h3 style="font-family:var(--font-d);font-size:1.5rem;margin-bottom:8px;">Core Subjects &amp; Papers</h3>
+      <div class="gold-line"></div>
+      <div class="subject-grid">
+        <div class="subj-card">
+          <span class="subj-icon">🌸</span>
+          <div class="subj-name">Diversity of Plants &amp; Cryptogams</div>
+          <div class="subj-sem">Semester 1</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🐛</span>
+          <div class="subj-name">Non-Chordates &amp; Animal Diversity</div>
+          <div class="subj-sem">Semester 1 &amp; 2</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">⚗️</span>
+          <div class="subj-name">Organic Chemistry &amp; Reactions</div>
+          <div class="subj-sem">Semester 1 &amp; 2</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🦠</span>
+          <div class="subj-name">Microbiology &amp; Cell Biology</div>
+          <div class="subj-sem">Semester 3</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🧬</span>
+          <div class="subj-name">Genetics &amp; Molecular Biology</div>
+          <div class="subj-sem">Semester 4</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🌳</span>
+          <div class="subj-name">Plant Physiology &amp; Ecology</div>
+          <div class="subj-sem">Semester 4 &amp; 5</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🦎</span>
+          <div class="subj-name">Applied Zoology &amp; Physiology</div>
+          <div class="subj-sem">Semester 5</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">💊</span>
+          <div class="subj-name">Pharmacognosy &amp; Ethnobotany</div>
+          <div class="subj-sem">Semester 6 (Elective)</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🌍</span>
+          <div class="subj-name">Environmental Science &amp; Ecology</div>
+          <div class="subj-sem">Semester 6</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:60px;" class="reveal">
+      <h3 style="font-family:var(--font-d);font-size:1.5rem;margin-bottom:8px;">Career Opportunities</h3>
+      <div class="gold-line"></div>
+      <div class="careers-grid">
+        <div class="career-chip"><i class="fas fa-microscope"></i> Research Scientist / Lab Technician</div>
+        <div class="career-chip"><i class="fas fa-hospital"></i> Allied Health Sciences (MBBS/Nursing/Pharmacy)</div>
+        <div class="career-chip"><i class="fas fa-seedling"></i> Agricultural Officer / Horticulturist</div>
+        <div class="career-chip"><i class="fas fa-tree"></i> Forest Officer / Environmental Consultant</div>
+        <div class="career-chip"><i class="fas fa-user-graduate"></i> MSc Botany / Zoology / Biotechnology</div>
+        <div class="career-chip"><i class="fas fa-chalkboard-teacher"></i> Biology Teacher / Lecturer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ DEPARTMENT 3: BA / BCom ══════════════ -->
+<section class="dept-detail" id="bcom">
+  <div class="container">
+    <div class="dept-detail-grid">
+
+      <div class="reveal-l">
+        <div class="dept-num">03</div>
+        <span class="section-label" style="color:#ce93d8;">Arts &amp; Commerce Department</span>
+        <h2 class="section-title">BA &amp; BCom with <span style="color:#ce93d8;">Computers</span></h2>
+        <div class="gold-line"></div>
+        <p class="section-desc">
+          A dynamic combination of Commerce / Arts fundamentals with practical computer education,
+          equipping students for careers in accounting, finance, management, banking, government
+          services, and the digital economy.
+        </p>
+
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Duration:</span> 3 Years (6 Semesters) · CBCS Framework</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Intake:</span> 60 Seats per stream per Academic Year</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Eligibility:</span> 10+2 / Intermediate with any stream; Commerce preferred for BCom</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-text"><span class="feat-strong">Speciality:</span> Tally ERP 9, MS Office, Computer Accounting, Income Tax practical training</div>
+          </div>
+        </div>
+
+        <a href="admissions.html" class="btn btn-gold"><i class="fas fa-arrow-right"></i> Apply for BA / BCom</a>
+      </div>
+
+      <div class="reveal-r">
+        <div class="dept-detail-visual dv-bg3">
+          <div class="dv-circles"></div>
+          <div class="dv-main-icon">📊</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BCom Subjects -->
+    <div style="margin-top:72px;" class="reveal">
+      <h3 style="font-family:var(--font-d);font-size:1.5rem;margin-bottom:4px;">BCom — Core Subjects</h3>
+      <div class="gold-line"></div>
+      <div class="subject-grid">
+        <div class="subj-card">
+          <span class="subj-icon">📒</span>
+          <div class="subj-name">Financial Accounting &amp; Business Finance</div>
+          <div class="subj-sem">Sem 1–4</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">💻</span>
+          <div class="subj-name">Computer Fundamentals &amp; MS Office</div>
+          <div class="subj-sem">Sem 1</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">💰</span>
+          <div class="subj-name">Income Tax Law &amp; Practice</div>
+          <div class="subj-sem">Sem 3 &amp; 4</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🏦</span>
+          <div class="subj-name">Banking Theory &amp; Financial Markets</div>
+          <div class="subj-sem">Sem 3</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">📊</span>
+          <div class="subj-name">Tally ERP 9 &amp; Computerised Accounting</div>
+          <div class="subj-sem">Sem 4 &amp; 5</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🌐</span>
+          <div class="subj-name">E-Commerce &amp; Digital Marketing</div>
+          <div class="subj-sem">Sem 5 &amp; 6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BA Subjects -->
+    <div style="margin-top:48px;" class="reveal">
+      <h3 style="font-family:var(--font-d);font-size:1.5rem;margin-bottom:4px;">BA — Core Subjects</h3>
+      <div class="gold-line"></div>
+      <div class="subject-grid">
+        <div class="subj-card">
+          <span class="subj-icon">📜</span>
+          <div class="subj-name">History of Modern India</div>
+          <div class="subj-sem">Sem 1–3</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">📈</span>
+          <div class="subj-name">Economics — Micro &amp; Macro</div>
+          <div class="subj-sem">Sem 1–4</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">💻</span>
+          <div class="subj-name">Computer Applications (Office, Web)</div>
+          <div class="subj-sem">Sem 1–4</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🗳️</span>
+          <div class="subj-name">Political Science &amp; Public Administration</div>
+          <div class="subj-sem">Sem 3 &amp; 4</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">🌐</span>
+          <div class="subj-name">E-Governance &amp; Digital Literacy</div>
+          <div class="subj-sem">Sem 5</div>
+        </div>
+        <div class="subj-card">
+          <span class="subj-icon">📰</span>
+          <div class="subj-name">Journalism &amp; Mass Communication</div>
+          <div class="subj-sem">Sem 6 (Elective)</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:60px;" class="reveal">
+      <h3 style="font-family:var(--font-d);font-size:1.5rem;margin-bottom:8px;">Career Opportunities</h3>
+      <div class="gold-line"></div>
+      <div class="careers-grid">
+        <div class="career-chip"><i class="fas fa-calculator"></i> Accountant / Auditor / Tax Consultant</div>
+        <div class="career-chip"><i class="fas fa-university"></i> Banking &amp; Finance Sector (IBPS, SBI)</div>
+        <div class="career-chip"><i class="fas fa-landmark"></i> Government Services (APPSC, UPSC)</div>
+        <div class="career-chip"><i class="fas fa-chart-line"></i> MBA / MCom / LLB Post-graduation</div>
+        <div class="career-chip"><i class="fas fa-store"></i> Entrepreneur / Business Management</div>
+        <div class="career-chip"><i class="fas fa-bullhorn"></i> Digital Marketing / Media Professional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Comparison Table ── -->
+<section class="section" style="background:var(--navy-mid);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span class="section-label">Quick Comparison</span>
+      <h2 class="section-title">Programme <span class="grad-text">Overview</span></h2>
+      <div class="gold-line" style="margin:16px auto 0;"></div>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+        <thead>
+          <tr style="background:var(--grad-gold);">
+            <th style="padding:16px 20px;text-align:left;color:var(--navy);font-weight:700;border-radius:var(--rad-sm) 0 0 0;">Programme</th>
+            <th style="padding:16px 20px;text-align:center;color:var(--navy);font-weight:700;">Duration</th>
+            <th style="padding:16px 20px;text-align:center;color:var(--navy);font-weight:700;">Seats</th>
+            <th style="padding:16px 20px;text-align:left;color:var(--navy);font-weight:700;">Eligibility</th>
+            <th style="padding:16px 20px;text-align:left;color:var(--navy);font-weight:700;border-radius:0 var(--rad-sm) 0 0;">Career Path</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(21,101,192,.08);transition:background .2s;" onmouseenter="this.style.background='rgba(21,101,192,.15)'" onmouseleave="this.style.background='rgba(21,101,192,.08)'">
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);">
+              <strong style="color:var(--blue-lt);">🔬 BSc</strong><br><span style="color:var(--w40);font-size:.78rem;">Computers &amp; Mathematics</span>
+            </td>
+            <td style="padding:18px 20px;text-align:center;border-bottom:1px solid var(--glass-b);color:var(--w60);">3 Years</td>
+            <td style="padding:18px 20px;text-align:center;border-bottom:1px solid var(--glass-b);color:var(--gold);font-weight:700;">60</td>
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);color:var(--w60);">Intermediate with Maths</td>
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);color:var(--w60);">IT / Software / MCA / MSc</td>
+          </tr>
+          <tr style="background:rgba(46,125,50,.08);transition:background .2s;" onmouseenter="this.style.background='rgba(46,125,50,.15)'" onmouseleave="this.style.background='rgba(46,125,50,.08)'">
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);">
+              <strong style="color:#66bb6a;">🌿 BZC</strong><br><span style="color:var(--w40);font-size:.78rem;">Botany, Zoology &amp; Chemistry</span>
+            </td>
+            <td style="padding:18px 20px;text-align:center;border-bottom:1px solid var(--glass-b);color:var(--w60);">3 Years</td>
+            <td style="padding:18px 20px;text-align:center;border-bottom:1px solid var(--glass-b);color:var(--gold);font-weight:700;">60</td>
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);color:var(--w60);">Intermediate with Biology</td>
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);color:var(--w60);">Medicine / Research / MSc</td>
+          </tr>
+          <tr style="background:rgba(106,27,154,.08);transition:background .2s;" onmouseenter="this.style.background='rgba(106,27,154,.15)'" onmouseleave="this.style.background='rgba(106,27,154,.08)'">
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);">
+              <strong style="color:#ce93d8;">📊 BA</strong><br><span style="color:var(--w40);font-size:.78rem;">Arts with Computers</span>
+            </td>
+            <td style="padding:18px 20px;text-align:center;border-bottom:1px solid var(--glass-b);color:var(--w60);">3 Years</td>
+            <td style="padding:18px 20px;text-align:center;border-bottom:1px solid var(--glass-b);color:var(--gold);font-weight:700;">60</td>
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);color:var(--w60);">Any stream at 10+2</td>
+            <td style="padding:18px 20px;border-bottom:1px solid var(--glass-b);color:var(--w60);">Govt Services / Media / LLB</td>
+          </tr>
+          <tr style="background:rgba(106,27,154,.08);transition:background .2s;" onmouseenter="this.style.background='rgba(106,27,154,.15)'" onmouseleave="this.style.background='rgba(106,27,154,.08)'">
+            <td style="padding:18px 20px;">
+              <strong style="color:#ce93d8;">💼 BCom</strong><br><span style="color:var(--w40);font-size:.78rem;">Commerce with Computers</span>
+            </td>
+            <td style="padding:18px 20px;text-align:center;color:var(--w60);">3 Years</td>
+            <td style="padding:18px 20px;text-align:center;color:var(--gold);font-weight:700;">60</td>
+            <td style="padding:18px 20px;color:var(--w60);">Intermediate Commerce preferred</td>
+            <td style="padding:18px 20px;color:var(--w60);">Finance / Banking / MBA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="admissions.html" class="btn btn-gold"><i class="fas fa-file-alt"></i> Start Your Application</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo-row">
+          <div class="foot-logo-badge">KRK</div>
+          <div>
+            <div class="foot-logo-name">KRK Degree College</div>
+            <div class="foot-logo-sub">APSCHE Affiliated</div>
+          </div>
+        </div>
+        <p class="foot-desc">Excellence in Science, Life Sciences, Arts and Commerce since 1995.</p>
+        <div class="socials">
+          <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About College</a></li>
+          <li><a href="departments.html">Departments</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Departments</h4>
+        <ul class="foot-links">
+          <li><a href="#bsc">BSc — Computers &amp; Maths</a></li>
+          <li><a href="#bzc">BZC — Life Sciences</a></li>
+          <li><a href="#bcom">BA with Computers</a></li>
+          <li><a href="#bcom">BCom with Computers</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <div class="foot-contact-item"><span class="fci-icon"><i class="fas fa-map-marker-alt"></i></span><span>Andhra Pradesh, India</span></div>
+        <div class="foot-contact-item"><span class="fci-icon"><i class="fas fa-phone-alt"></i></span><span>+91 XXXXX XXXXX</span></div>
+        <div class="foot-contact-item"><span class="fci-icon"><i class="fas fa-envelope"></i></span><span>info@krkdegreecollege.ac.in</span></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy">&copy; 2025 <span>KRK Degree College</span>. All rights reserved.</div>
+      <div class="foot-bl"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
