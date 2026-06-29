@@ -46,11 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileNv.classList.toggle('open');
       document.body.style.overflow = mobileNv.classList.contains('open') ? 'hidden' : '';
     });
+    /* Close mobile nav on any link click (including mob-sub links) */
     mobileNv.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         burger.classList.remove('open');
         mobileNv.classList.remove('open');
         document.body.style.overflow = '';
+        document.querySelectorAll('.mob-group').forEach(g => g.classList.remove('open'));
       });
     });
   }
@@ -174,6 +176,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* =============================================
+   MOBILE ACCORDION TOGGLE
+   ============================================= */
+window.toggleMob = function(btn) {
+  const group = btn.closest('.mob-group');
+  const isOpen = group.classList.contains('open');
+  document.querySelectorAll('.mob-group').forEach(g => g.classList.remove('open'));
+  if (!isOpen) group.classList.add('open');
+};
 
 /* =============================================
    COUNTER ANIMATION

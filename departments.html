@@ -91,34 +91,128 @@
     <a href="index.html" class="nav-logo">
       <div class="nav-logo-badge">KRK</div>
       <div>
-        <div class="nav-logo-name">KRK Degree College</div>
-        <div class="nav-logo-sub">APSCHE Affiliated</div>
+        <div class="nav-logo-name">KRK Govt. Degree College</div>
+        <div class="nav-logo-sub">Addanki · APSCHE Affiliated</div>
       </div>
     </a>
-    <nav>
+    <nav role="navigation">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="departments.html" class="active">Departments</a></li>
-        <li><a href="admissions.html">Admissions</a></li>
+
+        <li class="has-drop">
+          <a href="about.html">About <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="about.html#vision"><i class="fas fa-eye"></i> Vision &amp; Mission</a></li>
+            <li><a href="about.html#principal"><i class="fas fa-user-tie"></i> Principal's Message</a></li>
+            <li><a href="about.html#history"><i class="fas fa-landmark"></i> History &amp; Legacy</a></li>
+            <li><a href="about.html#leadership"><i class="fas fa-users"></i> Leadership Team</a></li>
+            <li><a href="about.html#infrastructure"><i class="fas fa-building"></i> Campus &amp; Facilities</a></li>
+          </ul>
+        </li>
+
+        <li class="has-drop">
+          <a href="departments.html" class="active">Departments <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="departments.html#bsc"><i class="fas fa-flask"></i> BSc &mdash; Computers &amp; Maths</a></li>
+            <li><a href="departments.html#bzc"><i class="fas fa-leaf"></i> BZC &mdash; Life Sciences</a></li>
+            <li><a href="departments.html#bcom"><i class="fas fa-book-open"></i> BA with Computers</a></li>
+            <li><a href="departments.html#bcom"><i class="fas fa-briefcase"></i> BCom with Computers</a></li>
+          </ul>
+        </li>
+
+        <li class="has-drop">
+          <a href="admissions.html">Admissions <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="admissions.html"><i class="fas fa-file-alt"></i> How to Apply</a></li>
+            <li><a href="admissions.html#eligibility"><i class="fas fa-check-circle"></i> Eligibility</a></li>
+            <li><a href="admissions.html#fees"><i class="fas fa-rupee-sign"></i> Fee Structure</a></li>
+            <li><a href="admissions.html#dates"><i class="fas fa-calendar-alt"></i> Important Dates</a></li>
+            <li><a href="admissions.html#apply-form"><i class="fas fa-paper-plane"></i> Apply Online</a></li>
+          </ul>
+        </li>
+
+        <li class="has-drop">
+          <a href="#">IQAC <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="#"><i class="fas fa-award"></i> NAAC Accreditation</a></li>
+            <li><a href="#"><i class="fas fa-clipboard-check"></i> IQAC Activities</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Research &amp; Publications</a></li>
+            <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Workshops &amp; Seminars</a></li>
+          </ul>
+        </li>
+
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <a href="admissions.html" class="btn btn-gold" style="padding:10px 26px;font-size:.88rem;display:inline-flex;align-items:center;gap:8px;">
+    <div class="nav-right" style="display:flex;align-items:center;gap:12px;">
+      <a href="admissions.html" class="btn btn-gold nav-apply-btn" style="padding:10px 26px;font-size:.88rem;">
         <i class="fas fa-graduation-cap"></i> Apply Now
       </a>
-      <button class="hamburger"><span></span><span></span><span></span></button>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <div class="mobile-nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="departments.html">Departments</a>
-  <a href="admissions.html">Admissions</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html" class="mob-link"><i class="fas fa-home"></i> Home</a>
+
+  <div class="mob-group">
+    <button class="mob-head" onclick="toggleMob(this)">
+      <span><i class="fas fa-university"></i> About</span>
+      <i class="fas fa-chevron-down mob-arrow"></i>
+    </button>
+    <div class="mob-sub">
+      <a href="about.html#vision">Vision &amp; Mission</a>
+      <a href="about.html#principal">Principal's Message</a>
+      <a href="about.html#history">History &amp; Legacy</a>
+      <a href="about.html#leadership">Leadership Team</a>
+      <a href="about.html#infrastructure">Campus &amp; Facilities</a>
+    </div>
+  </div>
+
+  <div class="mob-group">
+    <button class="mob-head" onclick="toggleMob(this)">
+      <span><i class="fas fa-graduation-cap"></i> Departments</span>
+      <i class="fas fa-chevron-down mob-arrow"></i>
+    </button>
+    <div class="mob-sub">
+      <a href="departments.html#bsc">BSc &mdash; Computers &amp; Maths</a>
+      <a href="departments.html#bzc">BZC &mdash; Life Sciences</a>
+      <a href="departments.html#bcom">BA with Computers</a>
+      <a href="departments.html#bcom">BCom with Computers</a>
+    </div>
+  </div>
+
+  <div class="mob-group">
+    <button class="mob-head" onclick="toggleMob(this)">
+      <span><i class="fas fa-file-alt"></i> Admissions</span>
+      <i class="fas fa-chevron-down mob-arrow"></i>
+    </button>
+    <div class="mob-sub">
+      <a href="admissions.html">How to Apply</a>
+      <a href="admissions.html#eligibility">Eligibility</a>
+      <a href="admissions.html#fees">Fee Structure</a>
+      <a href="admissions.html#dates">Important Dates</a>
+    </div>
+  </div>
+
+  <div class="mob-group">
+    <button class="mob-head" onclick="toggleMob(this)">
+      <span><i class="fas fa-award"></i> IQAC</span>
+      <i class="fas fa-chevron-down mob-arrow"></i>
+    </button>
+    <div class="mob-sub">
+      <a href="#">NAAC Accreditation</a>
+      <a href="#">IQAC Activities</a>
+      <a href="#">Research &amp; Publications</a>
+      <a href="#">Workshops &amp; Seminars</a>
+    </div>
+  </div>
+
+  <a href="contact.html" class="mob-link"><i class="fas fa-envelope"></i> Contact</a>
+  <a href="admissions.html" class="btn btn-gold" style="margin-top:20px;width:100%;max-width:340px;justify-content:center;">
+    <i class="fas fa-graduation-cap"></i> Apply Now
+  </a>
 </div>
 
 <!-- ── Inner Hero ── -->
@@ -580,7 +674,7 @@
             <div class="foot-logo-sub">APSCHE Affiliated</div>
           </div>
         </div>
-        <p class="foot-desc">Excellence in Science, Life Sciences, Arts and Commerce since 1995.</p>
+        <p class="foot-desc">Excellence in Science, Life Sciences, Arts and Commerce — Govt. College, Addanki since 1984.</p>
         <div class="socials">
           <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
@@ -609,7 +703,7 @@
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
-        <div class="foot-contact-item"><span class="fci-icon"><i class="fas fa-map-marker-alt"></i></span><span>Andhra Pradesh, India</span></div>
+        <div class="foot-contact-item"><span class="fci-icon"><i class="fas fa-map-marker-alt"></i></span><span>Singarakonda Hillocks, Addanki, Prakasam Dist., AP — 523 201</span></div>
         <div class="foot-contact-item"><span class="fci-icon"><i class="fas fa-phone-alt"></i></span><span>+91 XXXXX XXXXX</span></div>
         <div class="foot-contact-item"><span class="fci-icon"><i class="fas fa-envelope"></i></span><span>info@krkdegreecollege.ac.in</span></div>
       </div>

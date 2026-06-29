@@ -34,17 +34,57 @@
     <a href="index.html" class="nav-logo" aria-label="KRK Degree College Home">
       <div class="nav-logo-badge">KRK</div>
       <div>
-        <div class="nav-logo-name">KRK Degree College</div>
-        <div class="nav-logo-sub">APSCHE Affiliated</div>
+        <div class="nav-logo-name">KRK Govt. Degree College</div>
+        <div class="nav-logo-sub">Addanki · APSCHE Affiliated</div>
       </div>
     </a>
 
-    <nav>
+    <nav role="navigation">
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="departments.html">Departments</a></li>
-        <li><a href="admissions.html">Admissions</a></li>
+
+        <li class="has-drop">
+          <a href="about.html">About <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="about.html#vision"><i class="fas fa-eye"></i> Vision &amp; Mission</a></li>
+            <li><a href="about.html#principal"><i class="fas fa-user-tie"></i> Principal's Message</a></li>
+            <li><a href="about.html#history"><i class="fas fa-landmark"></i> History &amp; Legacy</a></li>
+            <li><a href="about.html#leadership"><i class="fas fa-users"></i> Leadership Team</a></li>
+            <li><a href="about.html#infrastructure"><i class="fas fa-building"></i> Campus &amp; Facilities</a></li>
+          </ul>
+        </li>
+
+        <li class="has-drop">
+          <a href="departments.html">Departments <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="departments.html#bsc"><i class="fas fa-flask"></i> BSc &mdash; Computers &amp; Maths</a></li>
+            <li><a href="departments.html#bzc"><i class="fas fa-leaf"></i> BZC &mdash; Life Sciences</a></li>
+            <li><a href="departments.html#bcom"><i class="fas fa-book-open"></i> BA with Computers</a></li>
+            <li><a href="departments.html#bcom"><i class="fas fa-briefcase"></i> BCom with Computers</a></li>
+          </ul>
+        </li>
+
+        <li class="has-drop">
+          <a href="admissions.html">Admissions <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="admissions.html"><i class="fas fa-file-alt"></i> How to Apply</a></li>
+            <li><a href="admissions.html#eligibility"><i class="fas fa-check-circle"></i> Eligibility</a></li>
+            <li><a href="admissions.html#fees"><i class="fas fa-rupee-sign"></i> Fee Structure</a></li>
+            <li><a href="admissions.html#dates"><i class="fas fa-calendar-alt"></i> Important Dates</a></li>
+            <li><a href="admissions.html#apply-form"><i class="fas fa-paper-plane"></i> Apply Online</a></li>
+          </ul>
+        </li>
+
+        <li class="has-drop">
+          <a href="#">IQAC <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="#"><i class="fas fa-award"></i> NAAC Accreditation</a></li>
+            <li><a href="#"><i class="fas fa-clipboard-check"></i> IQAC Activities</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Research &amp; Publications</a></li>
+            <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Workshops &amp; Seminars</a></li>
+          </ul>
+        </li>
+
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -62,12 +102,65 @@
 
 <!-- Mobile overlay -->
 <div class="mobile-nav">
-  <a href="index.html"><i class="fas fa-home" style="margin-right:10px"></i>Home</a>
-  <a href="about.html"><i class="fas fa-university" style="margin-right:10px"></i>About</a>
-  <a href="departments.html"><i class="fas fa-books" style="margin-right:10px"></i>Departments</a>
-  <a href="admissions.html"><i class="fas fa-file-alt" style="margin-right:10px"></i>Admissions</a>
-  <a href="contact.html"><i class="fas fa-envelope" style="margin-right:10px"></i>Contact</a>
-  <a href="admissions.html" class="btn btn-gold" style="margin-top:12px;">Apply Now</a>
+  <a href="index.html" class="mob-link"><i class="fas fa-home"></i> Home</a>
+
+  <div class="mob-group">
+    <button class="mob-head" onclick="toggleMob(this)">
+      <span><i class="fas fa-university"></i> About</span>
+      <i class="fas fa-chevron-down mob-arrow"></i>
+    </button>
+    <div class="mob-sub">
+      <a href="about.html#vision">Vision &amp; Mission</a>
+      <a href="about.html#principal">Principal's Message</a>
+      <a href="about.html#history">History &amp; Legacy</a>
+      <a href="about.html#leadership">Leadership Team</a>
+      <a href="about.html#infrastructure">Campus &amp; Facilities</a>
+    </div>
+  </div>
+
+  <div class="mob-group">
+    <button class="mob-head" onclick="toggleMob(this)">
+      <span><i class="fas fa-graduation-cap"></i> Departments</span>
+      <i class="fas fa-chevron-down mob-arrow"></i>
+    </button>
+    <div class="mob-sub">
+      <a href="departments.html#bsc">BSc &mdash; Computers &amp; Maths</a>
+      <a href="departments.html#bzc">BZC &mdash; Life Sciences</a>
+      <a href="departments.html#bcom">BA with Computers</a>
+      <a href="departments.html#bcom">BCom with Computers</a>
+    </div>
+  </div>
+
+  <div class="mob-group">
+    <button class="mob-head" onclick="toggleMob(this)">
+      <span><i class="fas fa-file-alt"></i> Admissions</span>
+      <i class="fas fa-chevron-down mob-arrow"></i>
+    </button>
+    <div class="mob-sub">
+      <a href="admissions.html">How to Apply</a>
+      <a href="admissions.html#eligibility">Eligibility</a>
+      <a href="admissions.html#fees">Fee Structure</a>
+      <a href="admissions.html#dates">Important Dates</a>
+    </div>
+  </div>
+
+  <div class="mob-group">
+    <button class="mob-head" onclick="toggleMob(this)">
+      <span><i class="fas fa-award"></i> IQAC</span>
+      <i class="fas fa-chevron-down mob-arrow"></i>
+    </button>
+    <div class="mob-sub">
+      <a href="#">NAAC Accreditation</a>
+      <a href="#">IQAC Activities</a>
+      <a href="#">Research &amp; Publications</a>
+      <a href="#">Workshops &amp; Seminars</a>
+    </div>
+  </div>
+
+  <a href="contact.html" class="mob-link"><i class="fas fa-envelope"></i> Contact</a>
+  <a href="admissions.html" class="btn btn-gold" style="margin-top:20px;width:100%;max-width:340px;justify-content:center;">
+    <i class="fas fa-graduation-cap"></i> Apply Now
+  </a>
 </div>
 
 <!-- ═══════════════════════════ HERO ════════════════════════════════════ -->
@@ -81,7 +174,7 @@
     <div class="hero-left">
       <div class="hero-badge">
         <span class="blink"></span>
-        APSCHE Affiliated · Est. 1995
+        Govt. College · Est. 1984
       </div>
 
       <h1 class="hero-title">
@@ -110,7 +203,7 @@
 
       <div class="hero-mini-stats">
         <div>
-          <div class="hm-num" data-count="28" data-suffix="+">28+</div>
+          <div class="hm-num" data-count="40" data-suffix="+">40+</div>
           <div class="hm-lbl">Years of Excellence</div>
         </div>
         <div>
@@ -129,7 +222,7 @@
       <div class="hero-card">
         <div class="emblem">KRK</div>
         <div class="hero-card-name">KRK Degree College</div>
-        <div class="hero-card-tag">Affiliated to APSCHE · AP, India</div>
+        <div class="hero-card-tag">Govt. College · Addanki, Prakasam Dist., AP</div>
         <div class="hero-features">
           <div class="hf-item">
             <div class="hf-icon">🔬</div>
@@ -190,7 +283,7 @@
           </div>
         </div>
         <div class="exp-badge">
-          <div class="exp-num" data-count="28" data-suffix="+">28+</div>
+          <div class="exp-num" data-count="40" data-suffix="+">40+</div>
           <div class="exp-lbl">Years of<br>Excellence</div>
         </div>
       </div>
@@ -200,8 +293,9 @@
         <h2 class="section-title">A Legacy of <span class="grad-text">Academic Excellence</span></h2>
         <div class="gold-line"></div>
         <p class="section-desc">
-          KRK Degree College has been a beacon of quality higher education in Andhra Pradesh
-          since 1995. Affiliated with APSCHE, we offer CBCS-based undergraduate programmes
+          K.R.K. Government Degree College, Addanki has been a beacon of quality higher education
+          in Prakasam District since its establishment on December 20, 1984, by the Government of
+          Andhra Pradesh. Affiliated with APSCHE, we offer free CBCS-based undergraduate programmes
           that blend traditional values with modern academic rigour.
         </p>
 
@@ -246,7 +340,7 @@
     <div class="stats-grid">
       <div class="stat-item reveal">
         <span class="stat-emoji">🏛️</span>
-        <div class="stat-num" data-count="28" data-suffix="+">0+</div>
+        <div class="stat-num" data-count="40" data-suffix="+">0+</div>
         <div class="stat-lbl">Years of Excellence</div>
       </div>
       <div class="stat-item reveal">
@@ -672,8 +766,8 @@
           </div>
         </div>
         <p class="foot-desc">
-          A premier institution of higher education in Andhra Pradesh, committed to academic excellence,
-          holistic development, and preparing students for a rapidly evolving world since 1995.
+          A premier Government institution of higher education in Prakasam District, AP, committed to
+          academic excellence and holistic student development since December 20, 1984.
         </p>
         <div class="socials">
           <a href="#" class="soc-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -710,7 +804,7 @@
         <h4>Contact Info</h4>
         <div class="foot-contact-item">
           <span class="fci-icon"><i class="fas fa-map-marker-alt"></i></span>
-          <span>KRK Degree College, Andhra Pradesh — 500 0XX, India</span>
+          <span>Singarakonda Hillocks, Addanki, Prakasam Dist., AP — 523 201</span>
         </div>
         <div class="foot-contact-item">
           <span class="fci-icon"><i class="fas fa-phone-alt"></i></span>
@@ -729,7 +823,7 @@
 
     <div class="foot-bottom">
       <div class="foot-copy">
-        &copy; 2025 <span>KRK Degree College</span>. All rights reserved. Affiliated to <span>APSCHE</span>.
+        &copy; 2025 <span>KRK Govt. Degree College, Addanki</span>. All rights reserved. Affiliated to <span>APSCHE</span>.
       </div>
       <div class="foot-bl">
         <a href="#">Privacy Policy</a>
