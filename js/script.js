@@ -299,3 +299,95 @@ function initParticles(canvas) {
   };
   draw();
 }
+
+/* =============================================
+   SITE-WIDE SEARCH
+   ============================================= */
+const SEARCH_DATA = [
+  { title: 'BSc (MPCS)',            desc: 'Maths, Physics, Computer Science',                    url: 'departments.html#bsc',         icon: '🔢' },
+  { title: 'BZC — Life Sciences',   desc: 'Botany, Zoology, Chemistry',                         url: 'departments.html#bzc',         icon: '🌿' },
+  { title: 'BA with Computers',     desc: 'Telugu, History, Political Science',                  url: 'departments.html#bcom',        icon: '📚' },
+  { title: 'BCom with Computers',   desc: 'Commerce, Accounting, Computer Applications',         url: 'departments.html#bcom',        icon: '💼' },
+  { title: 'Admissions 2025-26',    desc: 'How to apply, eligibility, important dates',          url: 'admissions.html',              icon: '🎓' },
+  { title: 'Free Education',        desc: 'Zero fees for eligible students under AP Govt scheme', url: 'admissions.html#fees',         icon: '💰' },
+  { title: 'Vision & Mission',      desc: 'Thamasoma Jyothirgamaya — Lead Darkness to Light',    url: 'about.html#vision',            icon: '👁️' },
+  { title: "Principal's Message",   desc: 'Dr. V. Mohana Rao, Principal',                       url: 'about.html#principal',         icon: '👔' },
+  { title: 'History & Legacy',      desc: 'Established 1984 — G.O.Ms.No.509',                   url: 'about.html#history',           icon: '🏛️' },
+  { title: 'Faculty & Staff',       desc: '24 teaching staff including PhD holders',             url: 'about.html#leadership',        icon: '👨‍🏫' },
+  { title: 'Campus & Facilities',   desc: '21.5 acres, 20 classrooms, 6 labs',                  url: 'about.html#infrastructure',    icon: '🏫' },
+  { title: 'NCC Unit',              desc: 'NCC activities, training and parades',                url: 'about.html#infrastructure',    icon: '🪖' },
+  { title: 'NSS Unit',              desc: 'National Service Scheme — community service',         url: 'about.html#infrastructure',    icon: '🤝' },
+  { title: 'JKC Centre',            desc: 'Jagananna Knowledge Centre — skill development',      url: 'about.html#infrastructure',    icon: '💡' },
+  { title: 'Library',               desc: '10,000+ books, e-journals, reading room',             url: 'about.html#infrastructure',    icon: '📖' },
+  { title: 'Computer Lab',          desc: '3 labs, 60 systems, high-speed internet',             url: 'departments.html#bsc',         icon: '💻' },
+  { title: 'Contact Us',            desc: 'Address, phone, email, Google Maps',                  url: 'contact.html',                 icon: '📞' },
+  { title: 'NAAC Accreditation',    desc: 'NAAC accredited — Grade A institution',               url: 'index.html',                   icon: '🏆' },
+  { title: 'AKU Affiliation',       desc: 'Andhra Kesari University, Ongole',                   url: 'about.html',                   icon: '🎓' },
+  { title: 'Sports Ground',         desc: '10-acre ground, multi-sport facilities',              url: 'about.html#infrastructure',    icon: '⚽' },
+  { title: 'Gallery & Events',      desc: 'Campus photos, events, programmes',                   url: 'index.html#gallery',           icon: '🖼️' },
+  { title: 'Mathematics Dept',      desc: 'Sri. P Sowjanya, Dr. Suresh Kumar Chintalapudi',     url: 'departments.html#bsc',         icon: '➗' },
+  { title: 'Physics Dept',          desc: 'Sri. K. Nageswara Rao, Dr. Shaik Mahammad Nayeem',  url: 'departments.html#bsc',         icon: '⚛️' },
+  { title: 'Chemistry Dept',        desc: 'Dr. P.V. Hemalatha, Dr. P. Srinivasa Rao',          url: 'departments.html#bzc',         icon: '🧪' },
+  { title: 'Botany Dept',           desc: 'Dr. Sk. Mastanvali, Sri. D. Rajasekhar',            url: 'departments.html#bzc',         icon: '🌱' },
+  { title: 'Zoology Dept',          desc: 'Dr. B. Ashok Kumar',                                 url: 'departments.html#bzc',         icon: '🦋' },
+  { title: 'Commerce Dept',         desc: 'Sri. A. Sikhamani, Sri. M. Gangadhararao',           url: 'departments.html#bcom',        icon: '📊' },
+  { title: 'CS Dept',               desc: 'Dr. Ch. Prasad, Sri. P. Srikanth',                   url: 'departments.html#bsc',         icon: '🖥️' },
+  { title: 'Telugu Dept',           desc: 'Dr. Ch. Anitha',                                     url: 'departments.html',             icon: '📜' },
+  { title: 'English Dept',          desc: 'Dr. N. Sharmila Rani',                               url: 'departments.html',             icon: '🔤' },
+];
+
+function toggleSearch() {
+  const overlay = document.getElementById('searchOverlay');
+  if (!overlay) return;
+  if (overlay.classList.contains('open')) {
+    closeSearch();
+  } else {
+    overlay.classList.add('open');
+    setTimeout(() => document.getElementById('searchInput').focus(), 50);
+  }
+}
+
+function closeSearch() {
+  const overlay = document.getElementById('searchOverlay');
+  if (overlay) overlay.classList.remove('open');
+  const inp = document.getElementById('searchInput');
+  if (inp) { inp.value = ''; }
+  const res = document.getElementById('searchResults');
+  if (res) res.innerHTML = '<div class="search-hint">Start typing to search…</div>';
+}
+
+function handleOverlayClick(e) {
+  if (e.target.id === 'searchOverlay') closeSearch();
+}
+
+function runSearch(q) {
+  const res = document.getElementById('searchResults');
+  if (!res) return;
+  q = q.trim().toLowerCase();
+  if (!q) {
+    res.innerHTML = '<div class="search-hint">Start typing to search…</div>';
+    return;
+  }
+  const matches = SEARCH_DATA.filter(item =>
+    item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q)
+  ).slice(0, 8);
+
+  if (!matches.length) {
+    res.innerHTML = '<div class="search-no-results">No results found for "<strong>' + q + '</strong>"</div>';
+    return;
+  }
+  res.innerHTML = matches.map(m =>
+    `<a href="${m.url}" class="search-result-item" onclick="closeSearch()">
+      <div class="search-result-icon">${m.icon}</div>
+      <div>
+        <div class="search-result-title">${m.title}</div>
+        <div class="search-result-desc">${m.desc}</div>
+      </div>
+    </a>`
+  ).join('');
+}
+
+/* Close search on Escape */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeSearch();
+});

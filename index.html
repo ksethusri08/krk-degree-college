@@ -92,6 +92,9 @@
     </nav>
 
     <div class="nav-right" style="display:flex;align-items:center;gap:12px;">
+      <button class="search-btn" aria-label="Search" onclick="toggleSearch()">
+        <i class="fas fa-search"></i>
+      </button>
       <a href="admissions.html" class="btn btn-gold nav-apply-btn" style="padding:10px 26px;font-size:.88rem;">
         <i class="fas fa-graduation-cap"></i> Apply Now
       </a>
@@ -101,6 +104,20 @@
     </div>
   </div>
 </header>
+
+<!-- ═══════════════════════════ SEARCH OVERLAY ══════════════════════════ -->
+<div class="search-overlay" id="searchOverlay" onclick="handleOverlayClick(event)">
+  <div class="search-modal">
+    <div class="search-header">
+      <i class="fas fa-search search-icon-lg"></i>
+      <input type="text" id="searchInput" placeholder="Search departments, courses, facilities…" oninput="runSearch(this.value)" autocomplete="off">
+      <button class="search-close" onclick="closeSearch()" aria-label="Close search"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-hint">Start typing to search…</div>
+    </div>
+  </div>
+</div>
 
 <!-- Mobile overlay -->
 <div class="mobile-nav">
@@ -330,7 +347,7 @@
             <div class="abt-pt-icon">🎓</div>
             <div>
               <div class="abt-pt-title">AKU Affiliated</div>
-              <div class="abt-pt-desc">Affiliated to Andhra Kesari University (AKU), Ongole — recognised by UGC under 2(f) &amp; 12(b). NAAC accredited with Grade B.</div>
+              <div class="abt-pt-desc">Affiliated to Andhra Kesari University (AKU), Ongole — recognised by UGC under 2(f) &amp; 12(b). NAAC accredited with Grade A.</div>
             </div>
           </div>
           <div class="abt-pt">
@@ -616,45 +633,45 @@
 
     <div class="gal-grid">
       <div class="gal-item gal-span2">
-        <div class="gal-art ga1">🏛️</div>
+        <img src="images/ncc-event.jpg" alt="KRK College Campus" class="gal-photo">
         <div class="gal-over">
           <div class="gal-over-txt">College Campus</div>
-          <div class="gal-over-sub">Main Building</div>
+          <div class="gal-over-sub">Main Building — Addanki</div>
         </div>
       </div>
       <div class="gal-item">
-        <div class="gal-art ga2">🔬</div>
+        <img src="images/anti-drugs.jpg" alt="Anti-Drugs Awareness" class="gal-photo">
         <div class="gal-over">
-          <div class="gal-over-txt">Science Lab</div>
-          <div class="gal-over-sub">Chemistry &amp; Biology</div>
+          <div class="gal-over-txt">Anti-Drugs Drive</div>
+          <div class="gal-over-sub">Student Awareness Programme</div>
         </div>
       </div>
       <div class="gal-item gal-row2">
-        <div class="gal-art ga3" style="height:100%;">🖥️</div>
+        <img src="images/yoga-day.jpg" alt="Yoga Day Celebration" class="gal-photo">
         <div class="gal-over">
-          <div class="gal-over-txt">Computer Lab</div>
-          <div class="gal-over-sub">60 Systems, Wi-Fi</div>
+          <div class="gal-over-txt">International Yoga Day</div>
+          <div class="gal-over-sub">Seminar Hall · 21 June 2025</div>
         </div>
       </div>
       <div class="gal-item">
-        <div class="gal-art ga4">📚</div>
+        <img src="images/republic-day.jpg" alt="Republic Day Celebrations" class="gal-photo">
         <div class="gal-over">
-          <div class="gal-over-txt">Library</div>
-          <div class="gal-over-sub">10,000+ Books</div>
+          <div class="gal-over-txt">Republic Day</div>
+          <div class="gal-over-sub">26 January — Flag Hoisting</div>
         </div>
       </div>
       <div class="gal-item">
-        <div class="gal-art ga5">⚽</div>
+        <img src="images/plantation.jpg" alt="Plantation Programme" class="gal-photo">
         <div class="gal-over">
-          <div class="gal-over-txt">Sports Ground</div>
-          <div class="gal-over-sub">Multi-sport Facility</div>
+          <div class="gal-over-txt">Green Campus Drive</div>
+          <div class="gal-over-sub">Tree Plantation Programme</div>
         </div>
       </div>
       <div class="gal-item">
-        <div class="gal-art ga6">🌿</div>
+        <img src="https://krkgdcaddanki.ac.in/admin/uploads/slides/7466NCC3_new.jpg" alt="NCC Activities" class="gal-photo">
         <div class="gal-over">
-          <div class="gal-over-txt">Botanical Garden</div>
-          <div class="gal-over-sub">200+ Plant Species</div>
+          <div class="gal-over-txt">NCC Unit</div>
+          <div class="gal-over-sub">Discipline &amp; Leadership</div>
         </div>
       </div>
     </div>
@@ -770,7 +787,7 @@
         <div class="affil-ic">🏆</div>
         <div>
           <div class="affil-chip-name">NAAC</div>
-          <div class="affil-chip-sub">Accredited · Grade B</div>
+          <div class="affil-chip-sub">Accredited · Grade A</div>
         </div>
       </div>
       <div class="affil-chip">

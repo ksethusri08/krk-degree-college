@@ -180,6 +180,7 @@
       </ul>
     </nav>
     <div class="nav-right" style="display:flex;align-items:center;gap:12px;">
+      <button class="search-btn" aria-label="Search" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
       <a href="admissions.html" class="btn btn-gold nav-apply-btn" style="padding:10px 26px;font-size:.88rem;">
         <i class="fas fa-graduation-cap"></i> Apply Now
       </a>
@@ -187,6 +188,19 @@
     </div>
   </div>
 </header>
+
+<div class="search-overlay" id="searchOverlay" onclick="handleOverlayClick(event)">
+  <div class="search-modal">
+    <div class="search-header">
+      <i class="fas fa-search search-icon-lg"></i>
+      <input type="text" id="searchInput" placeholder="Search departments, courses, facilities…" oninput="runSearch(this.value)" autocomplete="off">
+      <button class="search-close" onclick="closeSearch()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-hint">Start typing to search…</div>
+    </div>
+  </div>
+</div>
 
 <div class="mobile-nav">
   <a href="index.html" class="mob-link"><i class="fas fa-home"></i> Home</a>
@@ -383,15 +397,21 @@
     <h2 style="font-family:var(--font-d);font-size:1.8rem;margin-bottom:32px;text-align:center;">
       Find Us on the <span class="grad-text">Map</span>
     </h2>
-    <div class="map-wrap reveal">
-      <div class="map-placeholder">
-        <div class="map-pin">📍</div>
-        <h3>K.R.K. Govt. Degree College, Addanki</h3>
-        <p>Singarakonda Hillocks, Addanki, Bapatla Dist., AP — 523 201</p>
-        <a href="https://maps.google.com" target="_blank" rel="noopener">
-          <i class="fas fa-external-link-alt"></i> Open in Google Maps
-        </a>
-      </div>
+    <div class="map-wrap reveal" style="height:420px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,215,0,.2);">
+      <iframe
+        src="https://maps.google.com/maps?q=15.845614,79.967306&z=16&output=embed"
+        width="100%" height="100%"
+        style="border:0;display:block;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="KRK Degree College Location">
+      </iframe>
+    </div>
+    <div style="text-align:center;margin-top:16px;">
+      <a href="https://maps.google.com/?q=15.845614,79.967306" target="_blank" rel="noopener" class="btn btn-outline" style="display:inline-flex;align-items:center;gap:8px;padding:10px 24px;">
+        <i class="fas fa-directions"></i> Get Directions
+      </a>
     </div>
   </div>
 </section>

@@ -193,6 +193,7 @@
       </ul>
     </nav>
     <div class="nav-right" style="display:flex;align-items:center;gap:12px;">
+      <button class="search-btn" aria-label="Search" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
       <a href="#apply-form" class="btn btn-gold nav-apply-btn" style="padding:10px 26px;font-size:.88rem;">
         <i class="fas fa-file-alt"></i> Apply Online
       </a>
@@ -200,6 +201,19 @@
     </div>
   </div>
 </header>
+
+<div class="search-overlay" id="searchOverlay" onclick="handleOverlayClick(event)">
+  <div class="search-modal">
+    <div class="search-header">
+      <i class="fas fa-search search-icon-lg"></i>
+      <input type="text" id="searchInput" placeholder="Search departments, courses, facilities…" oninput="runSearch(this.value)" autocomplete="off">
+      <button class="search-close" onclick="closeSearch()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-hint">Start typing to search…</div>
+    </div>
+  </div>
+</div>
 
 <div class="mobile-nav">
   <a href="index.html" class="mob-link"><i class="fas fa-home"></i> Home</a>

@@ -1102,41 +1102,65 @@ footer::before {
 .mob-sub a:hover { color: var(--gold); }
 
 /* =============================================
-   COLLEGE LOGO / EMBLEM
+   COLLEGE LOGO / EMBLEM  (wide PNG — show in white pill)
    ============================================= */
+
+/* The KRK logo PNG is a wide horizontal image (logo + college name text).
+   Display it in a white pill so it reads on any background. */
 .nav-emblem-img {
-  width: 46px; height: 46px;
-  border-radius: 50%;
-  object-fit: cover;
+  height: 44px;
+  width: auto;
+  max-width: 190px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 4px 10px;
   flex-shrink: 0;
-  border: 2px solid rgba(255,215,0,0.45);
-  animation: emblGlow 3s ease-in-out infinite;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,215,0,0.2);
+  border: none;
+  animation: logoPillGlow 3s ease-in-out infinite;
 }
-@keyframes emblGlow {
-  0%, 100% { box-shadow: 0 0 6px rgba(255,215,0,0.35), 0 0 0 2px rgba(255,215,0,0.15); }
-  50%       { box-shadow: 0 0 18px rgba(255,215,0,0.75), 0 0 0 2px rgba(255,215,0,0.4); }
+@keyframes logoPillGlow {
+  0%, 100% { box-shadow: 0 2px 10px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,215,0,0.2); }
+  50%       { box-shadow: 0 2px 14px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,215,0,0.55); }
 }
 .foot-emblem-img {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
+  height: 48px;
+  width: auto;
+  max-width: 180px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 4px 10px;
   flex-shrink: 0;
-  border: 2px solid rgba(255,215,0,0.4);
-  animation: emblGlow 4s ease-in-out infinite;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  border: none;
 }
-.hero-emblem-img {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
+
+/* Hero emblem — show full logo in white card, centered */
+.emblem.has-img {
+  background: #ffffff;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  aspect-ratio: auto;
+  border-radius: 14px;
+  padding: 10px 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,215,0,0.3);
+  font-size: 0;
   animation: heroEmblPulse 4s ease-in-out infinite;
 }
 @keyframes heroEmblPulse {
-  0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 10px rgba(255,215,0,0.45)); }
-  50%       { transform: scale(1.04); filter: drop-shadow(0 0 22px rgba(255,215,0,0.85)); }
+  0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,215,0,0.3); }
+  50%       { box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 3px rgba(255,215,0,0.7); }
 }
-/* Emblem div now transparent (image fills it) */
-.emblem.has-img { background: transparent; border: none; font-size: 0; }
+.hero-emblem-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+}
 
 /* =============================================
    HERO MOTTO LINE
@@ -1223,17 +1247,25 @@ footer::before {
 }
 @media (max-width: 960px)  { .dept-grid { grid-template-columns: repeat(2, 1fr) !important; } }
 @media (max-width: 540px)  { .dept-grid { grid-template-columns: 1fr !important; } }
-.dept-card { min-height: 340px; }
+.dept-card { min-height: 0; }
+@media (max-width: 768px) {
+  .stagger > * { opacity: 1 !important; transform: none !important; }
+  .section-depts { padding-bottom: 40px !important; }
+}
 
 /* =============================================
    PRELOADER LOGO
    ============================================= */
 .pre-logo {
-  width: 90px; height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
+  height: 72px;
+  width: auto;
+  max-width: 280px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: #fff;
+  padding: 6px 16px;
   animation: preLogoSpin 2s ease-in-out infinite alternate;
-  border: 3px solid rgba(255,215,0,0.5);
+  box-shadow: 0 4px 20px rgba(255,215,0,0.5);
 }
 @keyframes preLogoSpin {
   0%   { transform: scale(1);    filter: drop-shadow(0 0 12px rgba(255,215,0,.5)); }
@@ -1258,4 +1290,120 @@ footer::before {
   .dept-card .dept-desc { font-size: .82rem; }
   .foot-grid { gap: 32px; }
   .stat-num { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+  .nav-logo-name { font-size: .7rem; }
+  .nav-logo-sub  { display: none; }
+  .nav-emblem-img { max-width: 130px; height: 38px; }
+}
+
+/* =============================================
+   SEARCH OVERLAY
+   ============================================= */
+.search-btn {
+  background: rgba(255,215,0,.12);
+  border: 1px solid rgba(255,215,0,.35);
+  color: var(--gold);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background .2s, transform .2s;
+  flex-shrink: 0;
+}
+.search-btn:hover { background: rgba(255,215,0,.25); transform: scale(1.1); }
+
+.search-overlay {
+  position: fixed; inset: 0;
+  background: rgba(8,12,36,.92);
+  backdrop-filter: blur(12px);
+  z-index: 10000;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 80px 16px 16px;
+  opacity: 0; visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+.search-overlay.open { opacity: 1; visibility: visible; }
+
+.search-modal {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,215,0,.25);
+  border-radius: 18px;
+  width: 100%; max-width: 640px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.7);
+  overflow: hidden;
+}
+.search-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,215,0,.12);
+}
+.search-icon-lg { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
+#searchInput {
+  flex: 1;
+  background: transparent;
+  border: none; outline: none;
+  color: #fff;
+  font-size: 1.05rem;
+  font-family: inherit;
+}
+#searchInput::placeholder { color: rgba(255,255,255,.4); }
+.search-close {
+  background: rgba(255,255,255,.08);
+  border: none; color: #fff;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: .85rem;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.search-close:hover { background: rgba(255,255,255,.18); }
+
+.search-results { padding: 8px 0; max-height: 400px; overflow-y: auto; }
+.search-hint {
+  padding: 24px 20px;
+  color: rgba(255,255,255,.4);
+  font-size: .9rem;
+  text-align: center;
+}
+.search-result-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background .15s;
+  text-decoration: none;
+  color: #fff;
+}
+.search-result-item:hover { background: rgba(255,215,0,.08); }
+.search-result-icon {
+  font-size: 1.4rem;
+  width: 36px; text-align: center;
+  flex-shrink: 0;
+}
+.search-result-title { font-weight: 600; font-size: .92rem; }
+.search-result-desc { font-size: .78rem; color: rgba(255,255,255,.55); margin-top: 2px; }
+.search-no-results {
+  padding: 24px 20px;
+  text-align: center;
+  color: rgba(255,255,255,.4);
+  font-size: .9rem;
+}
+
+/* =============================================
+   GALLERY REAL PHOTOS
+   ============================================= */
+.gal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 220px;
+  transition: transform .5s ease;
+}
+.gal-item:hover .gal-photo { transform: scale(1.04); }
+.gal-item.gal-row2 .gal-photo { min-height: 454px; }
+@media (max-width: 768px) {
+  .gal-photo { min-height: 160px; }
+  .gal-item.gal-row2 .gal-photo { min-height: 220px; }
 }
