@@ -57,6 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── Desktop Dropdown (JS timer — fixes hover gap bug) ── */
+  document.querySelectorAll('.has-drop').forEach(li => {
+    const drop = li.querySelector('.nav-dropdown');
+    if (!drop) return;
+    let closeTimer;
+    const openMenu  = () => { clearTimeout(closeTimer); drop.classList.add('open'); };
+    const closeMenu = () => { closeTimer = setTimeout(() => drop.classList.remove('open'), 260); };
+    li.addEventListener('mouseenter', openMenu);
+    li.addEventListener('mouseleave', closeMenu);
+    drop.addEventListener('mouseenter', openMenu);
+    drop.addEventListener('mouseleave', closeMenu);
+  });
+
   /* ── Particles Canvas ───────────────────────── */
   const canvas = document.getElementById('particles-canvas');
   if (canvas) initParticles(canvas);
@@ -65,11 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const tw = document.getElementById('tw');
   if (tw) {
     const phrases = [
-      'Excellence in Education',
-      'Shaping Future Leaders',
-      'Empowering Young Minds',
-      'Knowledge · Growth · Success',
-      'Building Bright Futures'
+      'THAMASOMA JYOTHIRGAMAYA',
+      'Lead us from Darkness to Light',
+      'Free Education · 40+ Years',
+      'Science · Arts · Commerce',
+      'Empowering Every Student',
+      'Govt. College · Addanki · Est. 1984'
     ];
     let pi = 0, ci = 0, del = false, speed = 85;
     const type = () => {
